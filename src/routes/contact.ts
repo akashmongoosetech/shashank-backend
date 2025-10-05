@@ -72,7 +72,15 @@ router.post('/', contactValidation, asyncHandler(async (req: Request, res: Respo
 
   await contact.save();
 
-  // Send email notification
+  // Send confirmation email to user
+  await emailService.sendContactConfirmation({
+    name,
+    email,
+    subject,
+    message,
+  });
+
+  // Send admin alert email
   await emailService.sendContactEmail({
     name,
     email,

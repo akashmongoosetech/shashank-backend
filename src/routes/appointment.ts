@@ -147,7 +147,18 @@ router.post('/', appointmentValidation, asyncHandler(async (req: Request, res: R
 
   await appointment.save();
 
-  // Send appointment notification email
+  // Send confirmation email to user
+  await emailService.sendAppointmentRequestConfirmation({
+    name,
+    email,
+    phone,
+    treatmentType,
+    preferredDate,
+    preferredTime,
+    message,
+  });
+
+  // Send admin alert email
   await emailService.sendAppointmentEmail({
     name,
     email,
