@@ -1,6 +1,6 @@
-# Doctor Derma Backend API
+# Bhargava Clinic Backend API
 
-A Node.js backend API for the Doctor Derma Clinic website, handling contact forms and appointment bookings with email notifications.
+A Node.js backend API for the Bhargava Clinic Clinic website, handling contact forms and appointment bookings with email notifications.
 
 ## Features
 
@@ -55,7 +55,7 @@ EMAIL_USER=your-email@gmail.com
 EMAIL_PASS=your-app-password
 
 # Clinic Information
-CLINIC_NAME=Doctor Derma Clinic
+CLINIC_NAME=Bhargava Clinic Clinic
 CLINIC_EMAIL=info@doctorderma.com
 CLINIC_PHONE=+1 (555) 123-4567
 CLINIC_ADDRESS=123 Medical Plaza, Health District, City 12345

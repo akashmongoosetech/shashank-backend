@@ -1,8 +1,8 @@
-# Doctor Derma Backend API - CRUD Documentation
+# Bhargava Clinic Backend API - CRUD Documentation
 
 ## Overview
 
-The Doctor Derma Backend API now includes full CRUD (Create, Read, Update, Delete) operations for both Contact and Appointment management, with MongoDB database integration.
+The Bhargava Clinic Backend API now includes full CRUD (Create, Read, Update, Delete) operations for both Contact and Appointment management, with MongoDB database integration.
 
 ## Database Models
 

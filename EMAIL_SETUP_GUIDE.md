@@ -1,6 +1,6 @@
 # Email Setup Guide
 
-This guide explains how to set up and configure the email functionality for the Doctor Derma Clinic application.
+This guide explains how to set up and configure the email functionality for the Bhargava Clinic Clinic application.
 
 ## Overview
 
@@ -30,7 +30,7 @@ EMAIL_USER=your-email@gmail.com
 EMAIL_PASS=your-app-password
 
 # Clinic Information
-CLINIC_NAME=Doctor Derma Clinic
+CLINIC_NAME=Bhargava Clinic Clinic
 CLINIC_EMAIL=info@doctorderma.com
 CLINIC_PHONE=+1 (555) 123-4567
 CLINIC_ADDRESS=123 Medical Plaza, Health District, City 12345

@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 import { contactRouter } from './routes/contact';
 import { appointmentRouter } from './routes/appointment';
@@ -32,18 +31,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-// Rate limiting
-const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000'), // 15 minutes
-  max: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '100'), // limit each IP to 100 requests per windowMs
-  message: {
-    error: 'Too many requests from this IP, please try again later.'
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-});
-
-app.use(limiter);
+// Rate limiting removed for development
 
 // Logging middleware
 app.use(morgan('combined'));
@@ -58,7 +46,7 @@ app.get('/health', async (req, res) => {
   
   res.status(200).json({
     status: 'OK',
-    message: 'Doctor Derma Backend API is running',
+    message: 'Bhargava Clinic Backend API is running',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development',
     database: dbHealth
@@ -95,7 +83,7 @@ process.on('SIGTERM', async () => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Doctor Derma Backend API running on port ${PORT}`);
+  console.log(`🚀 Bhargava Clinic Backend API running on port ${PORT}`);
   console.log(`📧 Email service configured for: ${process.env.EMAIL_USER}`);
   console.log(`🗄️  Database: ${process.env.MONGODB_URI || 'mongodb://localhost:27017/doctor-derma-clinic'}`);
   console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);

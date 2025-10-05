@@ -57,7 +57,7 @@ class EmailService {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
             <h1 style="margin: 0; font-size: 28px;">New Contact Form Submission</h1>
-            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Derma Clinic</p>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Bhargava Clinic</p>
           </div>
           
           <div style="background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e2e8f0;">
@@ -88,7 +88,7 @@ class EmailService {
           </div>
           
           <div style="text-align: center; margin-top: 20px; color: #6b7280; font-size: 14px;">
-            <p>This email was sent from the Doctor Derma Clinic contact form.</p>
+            <p>This email was sent from the Doctor Bhargava Clinic contact form.</p>
             <p>Reply directly to this email to respond to ${data.name}.</p>
           </div>
         </div>
@@ -121,7 +121,7 @@ class EmailService {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
             <h1 style="margin: 0; font-size: 28px;">New Appointment Request</h1>
-            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Derma Clinic</p>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Bhargava Clinic</p>
           </div>
           
           <div style="background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e2e8f0;">
@@ -178,7 +178,7 @@ class EmailService {
           </div>
           
           <div style="text-align: center; margin-top: 20px; color: #6b7280; font-size: 14px;">
-            <p>This appointment request was submitted through the Doctor Derma Clinic booking system.</p>
+            <p>This appointment request was submitted through the Bhargava Clinic booking system.</p>
             <p>Reply directly to this email to respond to ${data.name}.</p>
           </div>
         </div>
@@ -207,7 +207,7 @@ class EmailService {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
             <h1 style="margin: 0; font-size: 28px;">Thank You for Contacting Us</h1>
-            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Derma Clinic</p>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Bhargava Clinic</p>
           </div>
           
           <div style="background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e2e8f0;">
@@ -252,7 +252,7 @@ class EmailService {
           </div>
           
           <div style="text-align: center; margin-top: 20px; color: #6b7280; font-size: 14px;">
-            <p>Thank you for choosing Doctor Derma Clinic. We look forward to helping you!</p>
+            <p>Thank you for choosing Doctor Bhargava Clinic. We look forward to helping you!</p>
           </div>
         </div>
       `,
@@ -281,7 +281,7 @@ class EmailService {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
             <h1 style="margin: 0; font-size: 28px;">Appointment Confirmed</h1>
-            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Derma Clinic</p>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Bhargava Clinic</p>
           </div>
           
           <div style="background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e2e8f0;">
@@ -337,7 +337,7 @@ class EmailService {
           </div>
           
           <div style="text-align: center; margin-top: 20px; color: #6b7280; font-size: 14px;">
-            <p>Thank you for choosing Doctor Derma Clinic. We look forward to seeing you!</p>
+            <p>Thank you for choosing Doctor Bhargava Clinic. We look forward to seeing you!</p>
           </div>
         </div>
       `,
@@ -368,7 +368,7 @@ class EmailService {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
             <h1 style="margin: 0; font-size: 28px;">Appointment Request Received</h1>
-            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Derma Clinic</p>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Bhargava Clinic</p>
           </div>
           
           <div style="background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e2e8f0;">
@@ -433,7 +433,7 @@ class EmailService {
           </div>
           
           <div style="text-align: center; margin-top: 20px; color: #6b7280; font-size: 14px;">
-            <p>Thank you for choosing Doctor Derma Clinic. We look forward to seeing you!</p>
+            <p>Thank you for choosing Doctor Bhargava Clinic. We look forward to seeing you!</p>
           </div>
         </div>
       `,
