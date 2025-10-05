@@ -1,0 +1,120 @@
+# ===============================
+# Node & React Full Stack Project
+# ===============================
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build directories
+build/
+dist/
+out/
+.next/
+.cache/
+coverage/
+.temp/
+.tmp/
+.vite/
+
+# React specific
+# (React apps usually build to /build)
+*.chunk.js
+*.chunk.css
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Yarn / npm
+.yarn-integrity
+package-lock.json
+pnpm-lock.yaml
+yarn-error.log
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Testing
+coverage/
+jest-html-reporters-*.html
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Logs or uploads
+uploads/
+public/uploads/
+storage/
+
+# Build artifacts
+*.tgz
+*.zip
+
+# Server specific
+# (Ignore compiled JS if using TypeScript in backend)
+server/dist/
+backend/dist/
+api/dist/
+
+# Optional: ignore database or private data
+*.sqlite
+*.db
+*.db3
+*.bak
+*.sql
+*.tar
+
+# Local dev tools
+.envrc
+.nvmrc
+.vercel
+.netlify
+firebase-debug.log
+firebase-debug.*
+
+# Optional lockfiles for CI consistency
+# Uncomment to include only one:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
