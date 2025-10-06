@@ -111,6 +111,8 @@ router.get('/', [
   query('status').optional().isIn(['new', 'read', 'replied', 'archived']).withMessage('Invalid status'),
   query('priority').optional().isIn(['low', 'medium', 'high']).withMessage('Invalid priority'),
   query('search').optional().trim().isLength({ max: 100 }).withMessage('Search term too long'),
+  query('dateFrom').optional().isISO8601().withMessage('Invalid date format'),
+  query('dateTo').optional().isISO8601().withMessage('Invalid date format'),
 ], asyncHandler(async (req: Request, res: Response) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -129,6 +131,14 @@ router.get('/', [
   const filter: any = {};
   if (req.query.status) filter.status = req.query.status;
   if (req.query.priority) filter.priority = req.query.priority;
+
+  // Date range filter
+  if (req.query.dateFrom || req.query.dateTo) {
+    filter.createdAt = {};
+    if (req.query.dateFrom) filter.createdAt.$gte = new Date(req.query.dateFrom as string);
+    if (req.query.dateTo) filter.createdAt.$lte = new Date(req.query.dateTo as string);
+  }
+
   if (req.query.search) {
     filter.$or = [
       { name: { $regex: req.query.search, $options: 'i' } },
