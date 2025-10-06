@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import { contactRouter } from './routes/contact';
+import { subscriberRouter } from './routes/subscriber';
 import { appointmentRouter } from './routes/appointment';
 import { errorHandler } from './middleware/errorHandler';
 import { databaseService } from './services/databaseService';
@@ -56,6 +57,7 @@ app.get('/health', async (req, res) => {
 // API routes
 app.use('/api/contact', contactRouter);
 app.use('/api/appointment', appointmentRouter);
+app.use('/api/subscriber', subscriberRouter);
 
 // 404 handler
 app.use('*', (req, res) => {

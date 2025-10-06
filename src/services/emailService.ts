@@ -446,6 +446,34 @@ class EmailService {
 
     await this.transporter.sendMail(mailOptions);
   }
+
+  async sendSubscriptionConfirmation(email: string): Promise<void> {
+    const mailOptions = {
+      from: `"${process.env.CLINIC_NAME}" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: 'Subscription Confirmed - Doctor Bhargava Clinic',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center;">
+            <h1 style="margin: 0; font-size: 28px;">You're Subscribed!</h1>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">Doctor Bhargava Clinic</p>
+          </div>
+          <div style="background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; border: 1px solid #e2e8f0;">
+            <p style="color: #374151; line-height: 1.6; margin-bottom: 0;">
+              Thank you for subscribing to our updates. We'll occasionally send helpful skin care tips and clinic news.
+            </p>
+          </div>
+        </div>
+      `,
+    };
+
+    if (!this.enabled || !this.transporter) {
+      console.warn('⚠️ Email service is disabled. Skipping sendSubscriptionConfirmation.');
+      return;
+    }
+
+    await this.transporter.sendMail(mailOptions);
+  }
 }
 
 export const emailService = new EmailService();
