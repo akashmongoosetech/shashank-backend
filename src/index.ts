@@ -18,10 +18,13 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Connect to database
-databaseService.connect().catch((error) => {
+try {
+  await databaseService.connect();
+  console.log('✅ Database connected successfully');
+} catch (error) {
   console.error('❌ Database connection failed:', error);
   process.exit(1);
-});
+}
 
 // Security middleware
 app.use(helmet());
