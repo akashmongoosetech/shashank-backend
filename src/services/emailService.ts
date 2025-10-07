@@ -32,6 +32,10 @@ class EmailService {
     this.verifyConnection();
   }
 
+  public isEnabled(): boolean {
+    return this.enabled && !!this.transporter;
+  }
+
   private async verifyConnection(): Promise<void> {
     try {
       if (!this.enabled || !this.transporter) return;

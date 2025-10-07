@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { body, validationResult, query } from 'express-validator';
 import { asyncHandler } from '../middleware/errorHandler';
+import { emailService } from '../services/emailService';
 import { Subscriber } from '../models/Subscriber';
 
 const router = Router();
@@ -88,19 +89,18 @@ router.post('/', subscribeValidation, asyncHandler(async (req: Request, res: Res
   // Upsert: avoid duplicate errors, return existing
   const existing = await Subscriber.findOne({ email });
   if (existing) {
-    setTimeout(() => {
-      res.status(200).json({ success: true, message: 'You are already subscribed.' });
-    }, 2000);
-    return;
+    return res.status(200).json({ success: true, message: 'You are already subscribed.' });
   }
 
   const subscriber = new Subscriber({ email, source });
   await subscriber.save();
 
-  setTimeout(() => {
-    res.status(201).json({ success: true, message: 'Subscribed successfully.' });
-  }, 2000);
-  return;
+  // Fire-and-forget confirmation email; do not fail subscription on email error
+  emailService
+    .sendSubscriptionConfirmation(email)
+    .catch((err) => console.warn('⚠️ Failed to send subscription confirmation:', err));
+
+  return res.status(201).json({ success: true, message: 'Subscribed successfully.' });
 }));
 
 export { router as subscriberRouter };

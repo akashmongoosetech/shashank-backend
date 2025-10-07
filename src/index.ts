@@ -8,6 +8,7 @@ import { subscriberRouter } from './routes/subscriber';
 import { appointmentRouter } from './routes/appointment';
 import { errorHandler } from './middleware/errorHandler';
 import { databaseService } from './services/databaseService';
+import { emailService } from './services/emailService';
 
 // Load environment variables
 dotenv.config();
@@ -50,7 +51,11 @@ app.get('/health', async (req, res) => {
     message: 'Bhargava Clinic Backend API is running',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development',
-    database: dbHealth
+    database: dbHealth,
+    email: {
+      enabled: emailService ? emailService['isEnabled']?.() === true : false,
+      user: process.env.EMAIL_USER || null
+    }
   });
 });
 
