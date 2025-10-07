@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: bhargava-backend
+    env: node
+    plan: free
+    region: oregon
+    # Root directory is the repository root by default. When connecting a monorepo
+    # in Render's dashboard set the 'Root Directory' to `backend` so the build runs
+    # from this folder. If you connect via render.yaml, Render will detect this file
+    # and create the service using these settings.
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production

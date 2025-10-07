@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import { contactRouter } from './routes/contact';
 import { subscriberRouter } from './routes/subscriber';
 import { appointmentRouter } from './routes/appointment';
+import { blogRouter } from './routes/blog';
 import { errorHandler } from './middleware/errorHandler';
 import { databaseService } from './services/databaseService';
 import { emailService } from './services/emailService';
@@ -25,13 +26,17 @@ databaseService.connect().catch((error) => {
 // Security middleware
 app.use(helmet());
 
-// CORS configuration
+// CORS configuration — allow all origins
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: true,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200,
 }));
+
+// Ensure preflight requests are handled for all routes
+app.options('*', cors());
 
 // Rate limiting removed for development
 
@@ -62,6 +67,7 @@ app.get('/health', async (req, res) => {
 // API routes
 app.use('/api/contact', contactRouter);
 app.use('/api/appointment', appointmentRouter);
+app.use('/api/blog', blogRouter);
 app.use('/api/subscriber', subscriberRouter);
 
 // 404 handler
