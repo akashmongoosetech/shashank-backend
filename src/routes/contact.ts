@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express';
 import { body, validationResult, query } from 'express-validator';
-import { emailService } from '../services/emailService';
-import { Contact, IContact } from '../models/Contact';
-import { asyncHandler } from '../middleware/errorHandler';
+import { emailService } from '../services/emailService.js';
+import { Contact, IContact } from '../models/Contact.js';
+import { asyncHandler } from '../middleware/errorHandler.js';
 
 const router = Router();
 

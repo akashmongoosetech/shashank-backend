@@ -3,13 +3,13 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import { contactRouter } from './routes/contact';
-import { subscriberRouter } from './routes/subscriber';
-import { appointmentRouter } from './routes/appointment';
-import { blogRouter } from './routes/blog';
-import { errorHandler } from './middleware/errorHandler';
-import { databaseService } from './services/databaseService';
-import { emailService } from './services/emailService';
+import { contactRouter } from './routes/contact.js';
+import { subscriberRouter } from './routes/subscriber.js';
+import { appointmentRouter } from './routes/appointment.js';
+import { blogRouter } from './routes/blog.js';
+import { errorHandler } from './middleware/errorHandler.js';
+import { databaseService } from './services/databaseService.js';
+import { emailService } from './services/emailService.js';
 
 // Load environment variables
 dotenv.config();

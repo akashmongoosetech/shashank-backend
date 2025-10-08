@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { body, validationResult, query, param } from 'express-validator';
-import { Blog } from '../models/Blog';
-import { asyncHandler, createError } from '../middleware/errorHandler';
+import { Blog } from '../models/Blog.js';
+import { asyncHandler, createError } from '../middleware/errorHandler.js';
 
 const router = Router();
 
