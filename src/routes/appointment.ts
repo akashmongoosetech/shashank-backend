@@ -147,27 +147,35 @@ router.post('/', appointmentValidation, asyncHandler(async (req: Request, res: R
 
   await appointment.save();
 
-  // Send confirmation email to user
-  await emailService.sendAppointmentRequestConfirmation({
-    name,
-    email,
-    phone,
-    treatmentType,
-    preferredDate,
-    preferredTime,
-    message,
-  });
+  // Send confirmation email to user (non-blocking)
+  try {
+    await emailService.sendAppointmentRequestConfirmation({
+      name,
+      email,
+      phone,
+      treatmentType,
+      preferredDate,
+      preferredTime,
+      message,
+    });
+  } catch (emailError) {
+    console.warn('⚠️ Failed to send appointment confirmation email:', emailError);
+  }
 
-  // Send admin alert email
-  await emailService.sendAppointmentEmail({
-    name,
-    email,
-    phone,
-    treatmentType,
-    preferredDate,
-    preferredTime,
-    message,
-  });
+  // Send admin alert email (non-blocking)
+  try {
+    await emailService.sendAppointmentEmail({
+      name,
+      email,
+      phone,
+      treatmentType,
+      preferredDate,
+      preferredTime,
+      message,
+    });
+  } catch (emailError) {
+    console.warn('⚠️ Failed to send appointment admin alert email:', emailError);
+  }
 
   console.log(`📅 Appointment booked by ${name} (${email}) - ${treatmentType} on ${preferredDate} at ${preferredTime}`);
 

@@ -72,21 +72,29 @@ router.post('/', contactValidation, asyncHandler(async (req: Request, res: Respo
 
   await contact.save();
 
-  // Send confirmation email to user
-  await emailService.sendContactConfirmation({
-    name,
-    email,
-    subject,
-    message,
-  });
+  // Send confirmation email to user (non-blocking)
+  try {
+    await emailService.sendContactConfirmation({
+      name,
+      email,
+      subject,
+      message,
+    });
+  } catch (emailError) {
+    console.warn('⚠️ Failed to send confirmation email:', emailError);
+  }
 
-  // Send admin alert email
-  await emailService.sendContactEmail({
-    name,
-    email,
-    subject,
-    message,
-  });
+  // Send admin alert email (non-blocking)
+  try {
+    await emailService.sendContactEmail({
+      name,
+      email,
+      subject,
+      message,
+    });
+  } catch (emailError) {
+    console.warn('⚠️ Failed to send admin alert email:', emailError);
+  }
 
   console.log(`📧 Contact form submitted by ${name} (${email}) - Subject: ${subject}`);
 
